@@ -42,5 +42,17 @@ RUN mkdir /var/run/sshd \
 RUN useradd --create-home --shell /bin/bash --groups sudo php-remote \
     &&  echo "php-remote:php-remote" | chpasswd
 
+# composer global directory
+ENV COMPOSER_HOME "/usr/local/composer"
+RUN echo PATH=$PATH:$COMPOSER_HOME/vendor/bin >> /etc/profile
+
+# phpcs
+RUN composer global require "squizlabs/php_codesniffer=*"
+
+# phpmd
+RUN composer global require "phpmd/phpmd=*"
+
 EXPOSE 22
 EXPOSE 80
+
+CMD ["/usr/sbin/sshd", "-D"]
