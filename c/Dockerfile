@@ -14,6 +14,8 @@ RUN apt-get update && apt-get install -y manpages-dev
 
 COPY .vimrc /root/.vimrc
 
-WORKDIR /root/code
+RUN echo "alias c='clear'" >> /root/.bashrc
+
+WORKDIR /opt
 
 CMD /bin/bash
