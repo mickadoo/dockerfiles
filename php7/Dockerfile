@@ -52,6 +52,8 @@ RUN composer global require "squizlabs/php_codesniffer=*"
 # phpmd
 RUN composer global require "phpmd/phpmd=*"
 
+RUN apt-get install php7.0-curl
+
 EXPOSE 22
 EXPOSE 80
 

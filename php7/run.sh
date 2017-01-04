@@ -6,5 +6,5 @@ docker run -it \
     -p 3306:3306 \
     -v /home/michael/workspace:/var/www \
     --network dockernet \
-    --ip 172.18.0.2 \
+    --ip 172.19.0.2 \
     mickadoo/php7
